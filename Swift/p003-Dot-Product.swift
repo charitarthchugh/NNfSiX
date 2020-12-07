@@ -13,8 +13,8 @@ func dot(m:[[Double]], v:[Double]) -> [Double] {
 
   return u
 }
-
-func add(v1:[Double], v2:[Double]) -> [Double]{
+infix operator +*
+func +*(v1:[Double], v2:[Double]) -> [Double]{
   // here one should check for v1.count == v2.count
   // but this will be left out for simplicity and readability
   var u:[Double] = Array(repeating: 0.0, count: v1.count)
@@ -38,5 +38,5 @@ var weights:[[Double]] = [[0.2, 0.8, -0.5, 1.0],
 var biases:[Double] = [2.0, 3.0, 0.5]
 
 var output:[Double] = dot(m: weights, v: inputs)
-output = add(v1: output, v2: biases)
+output = (output +* biases)
 print(output)
